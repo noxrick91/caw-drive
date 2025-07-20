@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2024 STMicroelectronics.
+  * Copyright (c) 2025 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -34,14 +34,14 @@ extern "C" {
 
 extern TIM_HandleTypeDef htim1;
 
-extern TIM_HandleTypeDef htim8;
+extern TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
 
 void MX_TIM1_Init(void);
-void MX_TIM8_Init(void);
+void MX_TIM3_Init(void);
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 

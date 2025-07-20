@@ -31,7 +31,7 @@ endif
 ######################################
 # This is the name of the embedded target which will be build
 # The final file name will also have debug or release appended to it.
-TARGET ?= CawFOC
+TARGET ?= CawDrive
 
 #######################################
 # Build directories
@@ -75,44 +75,91 @@ endif
 ######################################
 # C sources
 C_SOURCES =  \
+Controller/Algorithm/Controllers/lowpass_filter.c \
+Controller/Algorithm/Controllers/median_filter.c \
+Controller/Algorithm/Controllers/params.c \
+Controller/Algorithm/Controllers/pid.c \
+Controller/Algorithm/Controllers/trajectory_planner.c \
+Controller/Algorithm/Models/pmsm_model.c \
+Controller/Algorithm/Modulations/svpwm.c \
+Controller/Algorithm/Sensors/kalman_velocity_estimator.c \
+Controller/Algorithm/Sensors/smo_pll_estimator.c \
+Controller/Algorithm/Sensors/velocity_estimator.c \
+Controller/Algorithm/foc.c \
+Controller/Algorithm/if.c \
+Controller/Algorithm/motor_params.c \
+Controller/Algorithm/transform.c \
+Controller/Algorithm/vf.c \
+Controller/Comm/protocol_config.c \
+Controller/Comm/protocol_discover.c \
+Controller/Comm/protocol_feedback.c \
+Controller/Comm/protocol_header.c \
+Controller/Comm/protocol_log.c \
+Controller/Comm/protocol_observer.c \
+Controller/Comm/protocol_state.c \
+Controller/Devices/dev_usart.c \
+Controller/Drivers/drv8323/drv8323.c \
+Controller/Drivers/mt6835/mt6835.c \
+Controller/PWM/pwm.c \
+Controller/Sensors/current.c \
+Controller/Sensors/hall.c \
+Controller/Sensors/temp.c \
+Controller/Sensors/vbus.c \
+Controller/Services/service_discover.c \
+Controller/Services/service_feedback.c \
+Controller/Services/service_message.c \
+Controller/Services/service_observer.c \
+Controller/Services/service_offline_ident.c \
+Controller/Services/service_sensor.c \
+Controller/State/state.c \
+Controller/Tasks/task_config.c \
+Controller/Tasks/task_ident.c \
+Controller/Tasks/task_state.c \
+Controller/Utils/crc.c \
+Controller/Utils/log.c \
+Controller/Utils/time.c \
+Controller/config.c \
+Controller/controller.c \
+Controller/setup.c \
 Core/Src/adc.c \
-Core/Src/app_freertos.c \
+Core/Src/can.c \
 Core/Src/dma.c \
-Core/Src/fdcan.c \
+Core/Src/freertos.c \
 Core/Src/gpio.c \
+Core/Src/i2c.c \
 Core/Src/main.c \
 Core/Src/spi.c \
-Core/Src/stm32g4xx_hal_msp.c \
-Core/Src/stm32g4xx_hal_timebase_tim.c \
-Core/Src/stm32g4xx_it.c \
+Core/Src/stm32f4xx_hal_msp.c \
+Core/Src/stm32f4xx_hal_timebase_tim.c \
+Core/Src/stm32f4xx_it.c \
 Core/Src/syscalls.c \
 Core/Src/sysmem.c \
-Core/Src/system_stm32g4xx.c \
+Core/Src/system_stm32f4xx.c \
 Core/Src/tim.c \
 Core/Src/usart.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_fdcan.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart_ex.c \
-Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.c \
 Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c \
 Middlewares/Third_Party/FreeRTOS/Source/croutine.c \
 Middlewares/Third_Party/FreeRTOS/Source/event_groups.c \
@@ -122,34 +169,7 @@ Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c \
 Middlewares/Third_Party/FreeRTOS/Source/queue.c \
 Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c \
 Middlewares/Third_Party/FreeRTOS/Source/tasks.c \
-Middlewares/Third_Party/FreeRTOS/Source/timers.c \
-caw_embedded/app/motor/control/lowpass_filter.c \
-caw_embedded/app/motor/control/pid.c \
-caw_embedded/app/motor/control/pll.c \
-caw_embedded/app/motor/custom.c \
-caw_embedded/app/motor/drivers/pwmx3.c \
-caw_embedded/app/motor/fast_math/fast_math.c \
-caw_embedded/app/motor/macros/helper.c \
-caw_embedded/app/motor/motor.c \
-caw_embedded/app/motor/motor_params.c \
-caw_embedded/app/motor/obsercation.c \
-caw_embedded/app/motor/sensors/current.c \
-caw_embedded/buffer.c \
-caw_embedded/device.c \
-caw_embedded/drivers/as5047p/as5047p.c \
-caw_embedded/drivers/drv8323/drv8323.c \
-caw_embedded/event.c \
-caw_embedded/event_callbacks/motor_flash_params.c \
-caw_embedded/event_callbacks/motor_init_params.c \
-caw_embedded/event_callbacks/motor_load_params.c \
-caw_embedded/event_callbacks/motor_set_params.c \
-caw_embedded/log.c \
-caw_embedded/protocols/code.c \
-caw_embedded/protocols/discover.c \
-caw_embedded/protocols/protocol.c \
-caw_embedded/protocols/protocol_motor.c \
-caw_embedded/utils/crypto.c \
-caw_embedded/utils/endian.c
+Middlewares/Third_Party/FreeRTOS/Source/timers.c
 
 
 CXX_SOURCES = \
@@ -157,7 +177,7 @@ CXX_SOURCES = \
 
 # ASM sources
 ASM_SOURCES =  \
-startup_stm32g474xx.s
+startup_stm32f446xx.s
 
 
 #######################################
@@ -227,13 +247,13 @@ AS_DEFS =
 
 # C defines
 C_DEFS =  \
--DSTM32G474xx \
+-DSTM32F446xx \
 -DUSE_HAL_DRIVER
 
 
 # CXX defines
 CXX_DEFS =  \
--DSTM32G474xx \
+-DSTM32F446xx \
 -DUSE_HAL_DRIVER
 
 
@@ -242,26 +262,29 @@ AS_INCLUDES = \
 
 # C includes
 C_INCLUDES =  \
+-IController \
+-IController/Algorithm \
+-IController/Algorithm/Controllers \
+-IController/Algorithm/Models \
+-IController/Algorithm/Modulations \
+-IController/Algorithm/Sensors \
+-IController/Devices \
+-IController/Drivers/drv8323 \
+-IController/PWM \
+-IController/Sensors \
+-IController/Services \
+-IController/State \
+-IController/Tasks \
+-IController/Utils \
 -ICore/Inc \
--IDrivers/CMSIS/Device/ST/STM32G4xx/Include \
+-IDrivers/CMSIS/Device/ST/STM32F4xx/Include \
 -IDrivers/CMSIS/Include \
--IDrivers/STM32G4xx_HAL_Driver/Inc \
--IDrivers/STM32G4xx_HAL_Driver/Inc/Legacy \
+-IDrivers/STM32F4xx_HAL_Driver/Inc \
+-IDrivers/STM32F4xx_HAL_Driver/Inc/Legacy \
+-IMiddlewares/ST/ARM/DSP/Inc \
 -IMiddlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS \
 -IMiddlewares/Third_Party/FreeRTOS/Source/include \
--IMiddlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F \
--Icaw_embedded \
--Icaw_embedded/app/motor \
--Icaw_embedded/app/motor/control \
--Icaw_embedded/app/motor/drivers \
--Icaw_embedded/app/motor/fast_math \
--Icaw_embedded/app/motor/macros \
--Icaw_embedded/app/motor/sensors \
--Icaw_embedded/drivers/as5047p \
--Icaw_embedded/drivers/drv8323 \
--Icaw_embedded/event_callbacks \
--Icaw_embedded/protocols \
--Icaw_embedded/utils
+-IMiddlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F
 
 
 
@@ -291,11 +314,12 @@ CXXFLAGS += $(ASSEMBLER_LIST_OUTPUT_FLAG)
 # LDFLAGS
 #######################################
 # link script
-LDSCRIPT = STM32G474RETx_FLASH.ld
+LDSCRIPT = STM32F446XX_FLASH.ld
 
 # libraries
-LIBS = -lc -lm -lnosys 
+LIBS = -larm_cortexM4lf_math -lc -lm -lnosys 
 LIBDIR = \
+-LMiddlewares/ST/ARM/DSP/Lib
 
 
 # Additional LD Flags from config file
@@ -399,7 +423,7 @@ flash: all
 # erase
 #######################################
 erase: all
-	"$(OPENOCD)" -f ./openocd.cfg -c "init; reset halt; stm32g4x mass_erase 0; exit"
+	"$(OPENOCD)" -f ./openocd.cfg -c "init; reset halt; stm32f4x mass_erase 0; exit"
 
 #######################################
 # clean up

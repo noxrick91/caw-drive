@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
- ******************************************************************************
- * @file           : main.h
- * @brief          : Header for main.c file.
- *                   This file contains the common defines of the application.
- ******************************************************************************
- * @attention
- *
- * Copyright (c) 2024 STMicroelectronics.
- * All rights reserved.
- *
- * This software is licensed under terms that can be found in the LICENSE file
- * in the root directory of this software component.
- * If no LICENSE file comes with this software, it is provided AS-IS.
- *
- ******************************************************************************
- */
+  ******************************************************************************
+  * @file           : main.h
+  * @brief          : Header for main.c file.
+  *                   This file contains the common defines of the application.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2025 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -27,7 +27,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32g4xx_hal.h"
+#include "stm32f4xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -57,17 +57,14 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define CKTIM 160000000
-#define PWM4_PULSE 1500
-#define PWM_PRSC 0
-#define PWM_FREQ 20000
-#define PWM_PERIOD CKTIM/(2*PWM_FREQ*(PWM_PRSC+1))
-#define SPI1_NSS_Pin GPIO_PIN_4
-#define SPI1_NSS_GPIO_Port GPIOA
-#define DRV_STA_Pin GPIO_PIN_1
-#define DRV_STA_GPIO_Port GPIOB
-#define MCU_STA_Pin GPIO_PIN_2
-#define MCU_STA_GPIO_Port GPIOB
+#define LED_3_Pin GPIO_PIN_1
+#define LED_3_GPIO_Port GPIOC
+#define LED_2_Pin GPIO_PIN_2
+#define LED_2_GPIO_Port GPIOC
+#define LED_1_Pin GPIO_PIN_3
+#define LED_1_GPIO_Port GPIOC
+#define LED_4_Pin GPIO_PIN_5
+#define LED_4_GPIO_Port GPIOA
 #define TIM1_BREAK_Pin GPIO_PIN_6
 #define TIM1_BREAK_GPIO_Port GPIOC
 #define DRV_CAL_Pin GPIO_PIN_7
@@ -76,12 +73,14 @@ void Error_Handler(void);
 #define DRV_ENABLE_GPIO_Port GPIOC
 #define DRV_FAULT_Pin GPIO_PIN_9
 #define DRV_FAULT_GPIO_Port GPIOC
-#define AS5047P_NSS_Pin GPIO_PIN_12
-#define AS5047P_NSS_GPIO_Port GPIOA
-#define DRV_SPI_NSS_Pin GPIO_PIN_15
-#define DRV_SPI_NSS_GPIO_Port GPIOA
-#define FDCAN_STB_Pin GPIO_PIN_2
-#define FDCAN_STB_GPIO_Port GPIOD
+#define ENCODER_CAL_Pin GPIO_PIN_15
+#define ENCODER_CAL_GPIO_Port GPIOA
+#define DRV_SPI_NSS_Pin GPIO_PIN_2
+#define DRV_SPI_NSS_GPIO_Port GPIOD
+#define ENCODER_SPI_NSS_Pin GPIO_PIN_3
+#define ENCODER_SPI_NSS_GPIO_Port GPIOB
+#define CAN_STB_Pin GPIO_PIN_5
+#define CAN_STB_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

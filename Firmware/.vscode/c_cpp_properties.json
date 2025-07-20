@@ -3,32 +3,35 @@
     {
       "name": "STM32",
       "includePath": [
+        "Controller",
+        "Controller/Algorithm",
+        "Controller/Algorithm/Controllers",
+        "Controller/Algorithm/Models",
+        "Controller/Algorithm/Modulations",
+        "Controller/Algorithm/Sensors",
+        "Controller/Devices",
+        "Controller/Drivers/drv8323",
+        "Controller/PWM",
+        "Controller/Sensors",
+        "Controller/Services",
+        "Controller/State",
+        "Controller/Tasks",
+        "Controller/Utils",
         "Core/Inc",
-        "Drivers/CMSIS/Device/ST/STM32G4xx/Include",
+        "Drivers/CMSIS/Device/ST/STM32F4xx/Include",
         "Drivers/CMSIS/Include",
-        "Drivers/STM32G4xx_HAL_Driver/Inc",
-        "Drivers/STM32G4xx_HAL_Driver/Inc/Legacy",
+        "Drivers/STM32F4xx_HAL_Driver/Inc",
+        "Drivers/STM32F4xx_HAL_Driver/Inc/Legacy",
+        "Middlewares/ST/ARM/DSP/Inc",
         "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS",
         "Middlewares/Third_Party/FreeRTOS/Source/include",
-        "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F",
-        "caw_embedded",
-        "caw_embedded/app/motor",
-        "caw_embedded/app/motor/control",
-        "caw_embedded/app/motor/drivers",
-        "caw_embedded/app/motor/fast_math",
-        "caw_embedded/app/motor/macros",
-        "caw_embedded/app/motor/sensors",
-        "caw_embedded/drivers/as5047p",
-        "caw_embedded/drivers/drv8323",
-        "caw_embedded/event_callbacks",
-        "caw_embedded/protocols",
-        "caw_embedded/utils"
+        "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
       ],
       "defines": [
-        "STM32G474xx",
+        "STM32F446xx",
         "USE_HAL_DRIVER"
       ],
-      "compilerPath": "/home/fakerick/.config/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/13.3.1-1.1.1/.content/bin/arm-none-eabi-gcc"
+      "compilerPath": "c:\\Users\\Rick\\AppData\\Roaming\\Code\\User\\globalStorage\\bmd.stm32-for-vscode\\@xpack-dev-tools\\arm-none-eabi-gcc\\14.2.1-1.1.1\\.content\\bin\\arm-none-eabi-gcc.EXE"
     }
   ],
   "version": 4

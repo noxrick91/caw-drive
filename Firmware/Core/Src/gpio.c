@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2024 STMicroelectronics.
+  * Copyright (c) 2025 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -45,54 +45,50 @@ void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOF_CLK_ENABLE();
-  __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOH_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, SPI1_NSS_Pin|AS5047P_NSS_Pin|DRV_SPI_NSS_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13|LED_3_Pin|LED_2_Pin|LED_1_Pin
+                          |TIM1_BREAK_Pin|DRV_CAL_Pin|DRV_ENABLE_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, DRV_STA_Pin|MCU_STA_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED_4_Pin|ENCODER_CAL_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15|CAN_STB_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, TIM1_BREAK_Pin|DRV_CAL_Pin|DRV_ENABLE_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(DRV_SPI_NSS_GPIO_Port, DRV_SPI_NSS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(FDCAN_STB_GPIO_Port, FDCAN_STB_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(ENCODER_SPI_NSS_GPIO_Port, ENCODER_SPI_NSS_Pin, GPIO_PIN_SET);
 
-  /*Configure GPIO pins : SPI1_NSS_Pin AS5047P_NSS_Pin DRV_SPI_NSS_Pin */
-  GPIO_InitStruct.Pin = SPI1_NSS_Pin|AS5047P_NSS_Pin|DRV_SPI_NSS_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : DRV_STA_Pin MCU_STA_Pin */
-  GPIO_InitStruct.Pin = DRV_STA_Pin|MCU_STA_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : PB13 PB14 PB15 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : TIM1_BREAK_Pin DRV_CAL_Pin DRV_ENABLE_Pin */
-  GPIO_InitStruct.Pin = TIM1_BREAK_Pin|DRV_CAL_Pin|DRV_ENABLE_Pin;
+  /*Configure GPIO pins : PC13 LED_3_Pin LED_2_Pin LED_1_Pin
+                           TIM1_BREAK_Pin DRV_CAL_Pin DRV_ENABLE_Pin */
+  GPIO_InitStruct.Pin = GPIO_PIN_13|LED_3_Pin|LED_2_Pin|LED_1_Pin
+                          |TIM1_BREAK_Pin|DRV_CAL_Pin|DRV_ENABLE_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : LED_4_Pin ENCODER_CAL_Pin */
+  GPIO_InitStruct.Pin = LED_4_Pin|ENCODER_CAL_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PB13 PB14 PB15 CAN_STB_Pin */
+  GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15|CAN_STB_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : DRV_FAULT_Pin */
   GPIO_InitStruct.Pin = DRV_FAULT_Pin;
@@ -100,12 +96,19 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(DRV_FAULT_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : FDCAN_STB_Pin */
-  GPIO_InitStruct.Pin = FDCAN_STB_Pin;
+  /*Configure GPIO pin : DRV_SPI_NSS_Pin */
+  GPIO_InitStruct.Pin = DRV_SPI_NSS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(FDCAN_STB_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(DRV_SPI_NSS_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : ENCODER_SPI_NSS_Pin */
+  GPIO_InitStruct.Pin = ENCODER_SPI_NSS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init(ENCODER_SPI_NSS_GPIO_Port, &GPIO_InitStruct);
 
 }
 

@@ -3,13 +3,17 @@
         {
             "showDevDebugOutput": "parsed",
             "cwd": "${workspaceRoot}",
-            "executable": "./build/debug/CawFOC.elf",
+            "executable": "./build/debug/CawDrive.elf",
             "name": "Debug STM32",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "openocd",
             "preLaunchTask": "Build STM",
-            "device": "stm32g474",
+            "device": "stm32f446",
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4
+            },
             "configFiles": [
                 "openocd.cfg"
             ]
@@ -17,13 +21,17 @@
         {
             "showDevDebugOutput": "parsed",
             "cwd": "${workspaceRoot}",
-            "executable": "./build/debug/CawFOC.elf",
+            "executable": "./build/debug/CawDrive.elf",
             "name": "Attach STM32",
             "request": "attach",
             "type": "cortex-debug",
             "servertype": "openocd",
             "preLaunchTask": "Build STM",
-            "device": "stm32g474",
+            "device": "stm32f446",
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4
+            },
             "configFiles": [
                 "openocd.cfg"
             ]

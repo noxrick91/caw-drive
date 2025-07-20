@@ -6,18 +6,18 @@
 # - entry_2
 
 # The project name
-target: CawFOC
+target: CawDrive
 # Can be C or C++
 language: C
 
 optimization: Og
 
 # MCU settings
-targetMCU: stm32g4x
+targetMCU: stm32f4x
 cpu: cortex-m4 # type of cpu e.g. cortex-m4
 fpu: fpv4-sp-d16 # Defines how floating points are defined. Can be left empty.
 floatAbi: -mfloat-abi=hard
-ldscript: STM32G474RETx_FLASH.ld # linker script
+ldscript: STM32F446XX_FLASH.ld # linker script
 
 # Compiler definitions. The -D prefix for the compiler will be automatically added.
 cDefinitions: []
