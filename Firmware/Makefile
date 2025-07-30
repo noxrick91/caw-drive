@@ -129,8 +129,7 @@ Controller/Algorithm/Controllers/median_filter.c \
 Controller/Services/service_sensor.c \
 Controller/Services/service_offline_ident.c \
 Controller/Utils/crc.c \
-Controller/Algorithm/Sensors/kalman_velocity_estimator.c \
-Controller/Algorithm/Controllers/trajectory_planner.c
+Controller/Algorithm/Sensors/kalman_velocity_estimator.c
 
 # ASM sources
 ASM_SOURCES =  \

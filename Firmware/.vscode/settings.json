@@ -21,7 +21,8 @@
         "transform.h": "c",
         "smo_pll_estimator.h": "c",
         "if.h": "c",
-        "service_message.h": "c"
+        "service_message.h": "c",
+        "velocity_estimator.h": "c"
     },
     "github.copilot.enable": {
         "*": false,

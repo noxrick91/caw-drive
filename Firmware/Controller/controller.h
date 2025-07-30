@@ -3,8 +3,6 @@
 
 #include "Algorithm/Models/pmsm_model.h"  // PMSM电机模型头文件
 #include "Algorithm/Modulations/svpwm.h"  // SVPWM调制头文件
-#include "Algorithm/Sensors/kalman_velocity_estimator.h"
-#include "Algorithm/Sensors/velocity_estimator.h"
 #include "Algorithm/foc.h"
 #include "Algorithm/if.h"
 #include "Algorithm/vf.h"
@@ -30,7 +28,6 @@ typedef struct {
   drv8323_t driver;
   vf_controller_t vf_controller;
   if_controller_t if_controller;
-  kalman_velocity_estimator_t velocity_estimator;
 
   // Real-time data from sensors and calculations
   volatile float electrical_angle;  // Corrected electrical angle (rad)

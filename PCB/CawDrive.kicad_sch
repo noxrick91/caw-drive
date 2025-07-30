@@ -5452,6 +5452,16 @@
 		)
 		(uuid "cc2235a0-9390-4da7-b333-53871f3f1f1d")
 	)
+	(text "MT6835_EN的NMOS型号为：WNM2030\n选择低导通电阻的"
+		(exclude_from_sim no)
+		(at 128.27 118.364 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "cc8c34d2-f62f-456c-8e44-d845e58b1e34")
+	)
 	(text "外部高速晶振"
 		(exclude_from_sim no)
 		(at 255.27 128.27 0)

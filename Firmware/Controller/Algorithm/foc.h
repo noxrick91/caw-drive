@@ -2,7 +2,6 @@
 #define __FOC_H__
 
 #include "../Controller/Algorithm/Controllers/pid.h"
-#include "./Controllers/trajectory_planner.h"
 #include "motor_params.h"
 
 // FOC控制模式枚举
@@ -41,7 +40,7 @@ typedef struct _foc_t {
   float speed_ramp_accel;  // 速度斜坡的加速度 (rpm/s)
 
   // 轨迹规划器 (用于位置模式)
-  trajectory_planner_t trajectory;
+
 } foc_t;
 
 extern foc_t g_foc;  // 全局FOC控制器实例

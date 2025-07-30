@@ -13,8 +13,6 @@
 #include "./State/state.h"      // 系统状态管理头文件
 #include "./Utils/log.h"
 #include "./temp.h"  // 温度传感器头文件
-#include "Algorithm/Sensors/kalman_velocity_estimator.h"
-#include "Algorithm/Sensors/smo_pll_estimator.h"  // SMO和PLL估算器头文件
 #include "Algorithm/Sensors/velocity_estimator.h"
 #include "Algorithm/if.h"
 #include "Algorithm/motor_params.h"
@@ -147,9 +145,10 @@ void controller_init() {
   float ki_pll = 50.0f;                 // PLL积分增益
   float bemf_lpf_cutoff_freq = 150.0f;  // BEMF低通滤波器截止频率 (Hz)
 
-  smo_pll_estimator_init(&motor_model_params_for_smo, k_slide, kp_pll, ki_pll,
-                         cfg->Tpwm,  // PWM周期/采样时间 (Ts)
-                         bemf_lpf_cutoff_freq);
+  // smo_pll_estimator_init(&motor_model_params_for_smo, k_slide, kp_pll,
+  // ki_pll,
+  //                        cfg->Tpwm,  // PWM周期/采样时间 (Ts)
+  //                        bemf_lpf_cutoff_freq);
 
   g_controller.v_bus = vbus_get();
   if (g_controller.v_bus < 1.0f) {
@@ -176,11 +175,13 @@ void controller_init() {
   g_controller.electrical_angle = 0.0f;
   g_controller.velocity_rpm = 0.0f;
 
-  kalman_velocity_estimator_init(&g_controller.velocity_estimator, 0.1f, 5.0f,
-                                 0.01f, mt6835_get_single_turn_angle());
-  debug("Kalman velocity estimator initialized.");
+  // Initialize the new velocity estimator
+  float lpf_tau =
+      0.005f;  // Time constant for the LPF, e.g., 5ms. Tune this value.
+  float lpf_alpha = cfg->Tpwm / (cfg->Tpwm + lpf_tau);
+  velocity_estimator_init(lpf_alpha, mt6835_get_single_turn_angle(), cfg->Tpwm);
+  debug("Velocity estimator initialized with alpha=%.4f.", lpf_alpha);
 
-  g_controller.last_tick = HAL_GetTick();  // Initialize tick for dt calculation
   config_set_state(0);
 }
 
@@ -212,34 +213,26 @@ void controller_step() {
 void controller_core_step() {
   config_t* cfg = config_get();
 
-  // --- Calculate dt ---
-  uint32_t current_tick = HAL_GetTick();
-  float dt = (current_tick - g_controller.last_tick) / 1000.0f;
-  g_controller.last_tick = current_tick;
-
   float pwm_duties[3];
   float v_ab_command[2] = {0.0f, 0.0f};
 
   service_sensor_periodic();
   current_get(g_controller.phase_currents);
 
+  // 1.1 Read angle from sensor
+  mt6835_update();
   float mechanical_angle = mt6835_get_single_turn_angle();
-
-  // 获取多圈角度
   g_controller.multi_turn_angle = mt6835_get_multi_turn_angle();
 
-  // 1.2 计算校正后的电角度
-  // 首先将机械角度转换为原始电角度
+  // 1.2 Update and get velocity using the new estimator
+  float velocity_rad_s = velocity_estimator_update(mechanical_angle);
+  g_controller.velocity_rpm = velocity_rad_s * 60.0f / (2.0f * M_PI);
+
+  // 1.3 Calculate corrected electrical angle
   float raw_electrical_angle =
       normalize_angle(mechanical_angle * cfg->motor_params.pole_pairs);
-  // 然后减去在对齐过程中测得的零点偏移
   g_controller.electrical_angle =
       normalize_angle(raw_electrical_angle - g_controller.zero_electric_angle);
-
-  // 1.3 更新并获取速度
-  float velocity_rad_s = kalman_velocity_estimator_update(
-      &g_controller.velocity_estimator, mechanical_angle, dt);
-  g_controller.velocity_rpm = velocity_rad_s * 60.0f / (2.0f * M_PI);
 
   // Periodic feedback of key data points
   service_feedback_periodic(g_controller.v_bus, g_controller.velocity_rpm,
@@ -332,17 +325,17 @@ void controller_core_step() {
   // 6. 更新PWM占空比
   pwm_set_duty_cycle(pwm_duties[0], pwm_duties[1], pwm_duties[2]);
 
-  static uint16_t tick = 0;
-  if (tick++ > 1000) {
-    tick = 0;
-    debug(
-        "Velocity Mode: target=%.2f, speed_ref=%.2f, measured_rpm=%.2f, "
-        "speed_error=%.2f",
-        cfg->target, g_foc.speed_ref, g_controller.velocity_rpm,
-        g_foc.speed_ref - g_controller.velocity_rpm);
-    debug("iq_ref=%.2f, electrical_angle=%.2f", g_foc.iq_ref,
-          g_controller.electrical_angle);
-  }
+  // static uint16_t tick = 0;
+  // if (tick++ > 1000) {
+  //   tick = 0;
+  //   debug(
+  //       "Velocity Mode: target=%.2f, speed_ref=%.2f, measured_rpm=%.2f, "
+  //       "speed_error=%.2f",
+  //       cfg->target, g_foc.speed_ref, g_controller.velocity_rpm,
+  //       g_foc.speed_ref - g_controller.velocity_rpm);
+  //   debug("iq_ref=%.2f, electrical_angle=%.2f", g_foc.iq_ref,
+  //         g_controller.electrical_angle);
+  // }
 
   // 7. 数据上报
   float ovserver_data[6];

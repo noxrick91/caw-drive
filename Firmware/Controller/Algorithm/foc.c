@@ -4,7 +4,6 @@
 #include <stddef.h>
 
 #include "../Utils/log.h"
-#include "./Controllers/trajectory_planner.h"
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846f
@@ -71,11 +70,6 @@ void foc_init(foc_params_t* params, float Tpwm, float vbus) {
   g_foc.speed_ramp_accel = 1500.0f;  // 默认加速度 2000 rpm/s
 
   // 初始化轨迹规划器
-  trajectory_planner_init(&g_foc.trajectory,
-                          PROFILE_TYPE_S_CURVE);  // 默认S型曲线
-  // 设置一个默认的限制，可以在别处修改
-  trajectory_planner_set_limits(&g_foc.trajectory, 1000.0f * RPM_TO_RADS,
-                                4000.0f * RPM_TO_RADS, 40000.0f * RPM_TO_RADS);
 }
 
 /**
@@ -111,28 +105,11 @@ void foc_step(float id_meas, float iq_meas, float speed_meas,
 
   // --- 根据不同控制模式，计算速度环的目标值 ---
   if (g_foc.control_mode == FOC_CONTROL_MODE_POSITION) {
-    // 位置控制模式，使用轨迹规划器
-    // 1. 检测目标位置是否变化，如果变化则重新规划
-    if (fabsf(g_foc.position_ref - last_pos_ref) > FLT_EPSILON) {
-      trajectory_planner_plan(&g_foc.trajectory, g_foc.trajectory.current_pos,
-                              g_foc.position_ref);
-      last_pos_ref = g_foc.position_ref;
-    }
-
-    // 2. 执行规划器步进
-    trajectory_planner_step(&g_foc.trajectory, g_foc.Tpwm);
-
-    // 3. 位置环 (P控制器)
-    //    位置环的输出作为速度环的修正量
-    // float position_error = g_foc.trajectory.current_pos - multi_turn_angle;
-    // float pos_correction_vel =
-    //     pid_step(&g_foc.params->position_pid, position_error, g_foc.Tpwm);
-    float position_error = g_foc.trajectory.current_pos - multi_turn_angle;
-    float pos_correction_vel = g_foc.params->position_pid.Kp * position_error;
-
-    // 4. 将规划速度和位置环修正速度相加
-    final_speed_ref_for_pid =
-        (g_foc.trajectory.current_vel * RADS_TO_RPM) + pos_correction_vel;
+    // 位置控制模式，(已移除轨迹规划器)
+    // 可以在此处添加不依赖轨迹规划器的简易位置控制逻辑
+    // 例如，一个简单的P控制器
+    float position_error = g_foc.position_ref - multi_turn_angle;
+    final_speed_ref_for_pid = g_foc.params->position_pid.Kp * position_error;
 
   } else if (g_foc.control_mode == FOC_CONTROL_MODE_SPEED) {
     // 速度控制模式，使用速度斜坡

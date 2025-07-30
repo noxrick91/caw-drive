@@ -79,7 +79,6 @@ Controller/Algorithm/Controllers/lowpass_filter.c \
 Controller/Algorithm/Controllers/median_filter.c \
 Controller/Algorithm/Controllers/params.c \
 Controller/Algorithm/Controllers/pid.c \
-Controller/Algorithm/Controllers/trajectory_planner.c \
 Controller/Algorithm/Models/pmsm_model.c \
 Controller/Algorithm/Modulations/svpwm.c \
 Controller/Algorithm/Sensors/kalman_velocity_estimator.c \

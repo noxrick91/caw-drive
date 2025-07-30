@@ -1,6 +1,7 @@
 #include "task_config.h"
 
 #include "../Algorithm/Modulations/svpwm.h"
+#include "../Algorithm/Sensors/velocity_estimator.h"
 #include "../Algorithm/foc.h"
 #include "../Algorithm/if.h"
 #include "../Comm/protocol_config.h"
