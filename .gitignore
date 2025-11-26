@@ -2,5 +2,5 @@
 Firmware/target/
 Firmware/build/
 Firmware/caw_embedded/
-PCB/BOM
-PCB/Gerber
+PCB/BOM/
+PCB/Gerber/

@@ -5538,10 +5538,10 @@
 		(uuid "231bb2de-5bad-49a0-97a7-fe131bc38b7f")
 	)
 	(junction
-		(at 157.48 182.88)
+		(at 157.48 184.15)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "2b7c445b-fb22-4c20-84fc-45beec24fc34")
+		(uuid "2b713e83-cd64-45a2-985a-c82dd287bcea")
 	)
 	(junction
 		(at 156.21 38.1)
@@ -6697,7 +6697,7 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 181.61) (xy 162.56 182.88)
+			(xy 162.56 181.61) (xy 162.56 184.15)
 		)
 		(stroke
 			(width 0)
@@ -6777,16 +6777,6 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 181.61) (xy 157.48 182.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "60c24852-d273-4ec2-9328-781c75f72365")
-	)
-	(wire
-		(pts
 			(xy 99.06 120.65) (xy 78.74 120.65)
 		)
 		(stroke
@@ -6824,16 +6814,6 @@
 			(type default)
 		)
 		(uuid "6c0ad9b0-950d-4bb3-96d7-4570847c49d6")
-	)
-	(wire
-		(pts
-			(xy 162.56 182.88) (xy 157.48 182.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6c6bc0aa-1b08-4c8b-bb30-319c3bbd0697")
 	)
 	(wire
 		(pts
@@ -6954,6 +6934,16 @@
 			(type default)
 		)
 		(uuid "7469a590-582f-43a8-86be-95eb8821c393")
+	)
+	(wire
+		(pts
+			(xy 157.48 184.15) (xy 157.48 186.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74702346-62a6-4347-9b65-b17bb99ec528")
 	)
 	(wire
 		(pts
@@ -7297,7 +7287,7 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 182.88) (xy 157.48 184.15)
+			(xy 157.48 181.61) (xy 157.48 184.15)
 		)
 		(stroke
 			(width 0)
@@ -8254,6 +8244,16 @@
 			(type default)
 		)
 		(uuid "e759ba1b-81ad-46fd-9d23-03b9697e9071")
+	)
+	(wire
+		(pts
+			(xy 157.48 184.15) (xy 162.56 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e7af7d48-012b-4f3a-a981-2a513b33fd25")
 	)
 	(wire
 		(pts
@@ -14539,72 +14539,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 157.48 184.15 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "88ae8890-aae8-4630-9d3f-f7265b497c87")
-		(property "Reference" "#PWR018"
-			(at 157.48 190.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 157.48 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" ""
-			(at 157.48 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 157.48 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 157.48 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "65eb79d8-2d69-40ac-916d-5eda386e966d")
-		)
-		(instances
-			(project "CawDrive"
-				(path "/80524a83-b783-469c-b956-da06086e2ffd"
-					(reference "#PWR018")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 109.22 97.79 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -15588,6 +15522,72 @@
 			(project "CawDrive"
 				(path "/80524a83-b783-469c-b956-da06086e2ffd"
 					(reference "#PWR084")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 157.48 186.69 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ae08d17c-dcdd-4085-ac13-1178af11cb30")
+		(property "Reference" "#PWR018"
+			(at 157.48 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 157.48 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 157.48 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 157.48 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 157.48 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "31636f01-cf3e-45ec-8afd-41a9b3298645")
+		)
+		(instances
+			(project "CawDrive"
+				(path "/80524a83-b783-469c-b956-da06086e2ffd"
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
