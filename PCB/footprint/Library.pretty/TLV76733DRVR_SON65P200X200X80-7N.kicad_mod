@@ -1,0 +1,318 @@
+(footprint "TLV76733DRVR_SON65P200X200X80-7N"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0.292 -1.7134 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "1e41d9d7-8ffe-4e6e-8793-81372c31fdd3")
+		(effects
+			(font
+				(size 0.64 0.64)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "TLV76733DRVR"
+		(at 5.9816 1.7134 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "954faca1-0dab-4219-81e8-4fb0470eca03")
+		(effects
+			(font
+				(size 0.64 0.64)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://item.szlcsc.com/3046559.html"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f3fe5d9a-22a7-41ac-aadc-7b528bf0293d")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "Adjustable- and fixed-output, 1-A, 16-V, positive-voltage low-dropout (LDO) linear regulator"
+		(at 262.364 154.015 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "1ebff3c5-9ec1-4b08-b4cc-5d2c58cf4444")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Availability" "In Stock"
+		(at 262.364 154.015 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "a5e21472-dcc8-43b1-9e08-557bdfe490ca")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Check_prices" "https://www.snapeda.com/parts/TLV76733DRVR/Texas+Instruments/view-part/?ref=eda"
+		(at 262.364 154.015 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "fcd0b284-63aa-4678-af64-e93113408f0d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MF" "Texas Instruments"
+		(at 262.364 154.015 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8b762f4f-6e5c-45eb-aaf7-7cead381458c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MP" "TLV76733DRVR"
+		(at 262.364 154.015 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d451bb07-ef12-40b4-9d23-7061d5fae4c9")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Package" "WSON-6 Texas Instruments"
+		(at 262.364 154.015 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ea1edfa8-eec2-4d51-a17a-052cc90f4fcd")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Price" "None"
+		(at 262.364 154.015 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b2d4582f-5936-4ea2-b297-044ff4b61af4")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Purchase-URL" "https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=3657494&manufacturer=Texas Instruments&part_name=TLV76733DRVR&search_term=tlv76733drvr"
+		(at 262.364 154.015 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "4777e963-2f5a-4f73-8b23-f532523c4360")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "SnapEDA_Link" "https://www.snapeda.com/parts/TLV76733DRVR/Texas+Instruments/view-part/?ref=snap"
+		(at 262.364 154.015 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2cfb498f-0549-41f9-b234-9043c22673bb")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -1 -1.13)
+		(end 1 -1.13)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d7d862fd-c8ad-48c6-9a38-1b78f8363605")
+	)
+	(fp_line
+		(start -1 1.13)
+		(end 1 1.13)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "8db53a45-89dc-4600-a040-eaec509c4a4f")
+	)
+	(fp_poly
+		(pts
+			(xy -0.316 -0.506) (xy 0.316 -0.506) (xy 0.316 0.506) (xy -0.316 0.506)
+		)
+		(stroke
+			(width 0.01)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Paste")
+		(uuid "d9bcf00c-312d-4fc3-9173-a5797f57e081")
+	)
+	(fp_line
+		(start -1.675 -1.25)
+		(end -1.675 1.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "c53a0854-475b-4a7d-b780-425c8a596ea7")
+	)
+	(fp_line
+		(start -1.675 -1.25)
+		(end 1.675 -1.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "9e7bfce5-877c-41a4-a717-612e0d42da69")
+	)
+	(fp_line
+		(start -1.675 1.25)
+		(end 1.675 1.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "ad87ce96-a9c3-4e17-bb96-2f2b55671eee")
+	)
+	(fp_line
+		(start 1.675 -1.25)
+		(end 1.675 1.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "2fe48dd4-aee5-4456-8645-c025bf576443")
+	)
+	(fp_line
+		(start -1 -1)
+		(end -1 1)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "0148fd93-3689-4d2b-8e0a-337f99b452ef")
+	)
+	(fp_line
+		(start -1 -1)
+		(end 1 -1)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "5e373d2f-a06e-4333-8761-b85d29c9c79a")
+	)
+	(fp_line
+		(start -1 1)
+		(end 1 1)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "fbc9524f-d06a-4317-bc4f-2038797c8a0a")
+	)
+	(fp_line
+		(start 1 -1)
+		(end 1 1)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "7016b4e4-9c3e-4332-b403-c470cb383ea8")
+	)
+	(pad "1" smd rect
+		(at -1.025 -0.65)
+		(size 0.66 0.32)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "b1f3ea4e-d7c6-4d66-9b8c-13129f2450e3")
+	)
+	(pad "2" smd rect
+		(at -1.025 0)
+		(size 0.66 0.32)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "29885893-bc5e-496d-80a8-d38a551d3a1b")
+	)
+	(pad "3" smd rect
+		(at -1.025 0.65)
+		(size 0.66 0.32)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "9903c148-92a7-4a40-8e01-ba71a79d6a4b")
+	)
+	(pad "4" smd rect
+		(at 1.025 0.65)
+		(size 0.66 0.32)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "431cb851-1655-4456-8e38-78b7b89b1276")
+	)
+	(pad "5" smd rect
+		(at 1.025 0)
+		(size 0.66 0.32)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "dddf9793-b196-446d-96bb-afe681f199ae")
+	)
+	(pad "6" smd rect
+		(at 1.025 -0.65)
+		(size 0.66 0.32)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "98917fd4-61c6-4cc5-bd40-cbc48e37077c")
+	)
+	(pad "7" smd rect
+		(at 0 0 90)
+		(size 1.6 1)
+		(layers "F.Cu" "F.Mask")
+		(solder_mask_margin 0.102)
+		(uuid "1a78c50e-e62e-4ec1-a1ec-327aaf28b101")
+	)
+	(embedded_fonts no)
+	(model ":RICK_3DMODEL_DIR:Rick_Regulator_Linear/TLV76733DRVR_SON65P200X200X80-7N.STEP"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -90 0 90)
+		)
+	)
+)

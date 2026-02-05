@@ -1,0 +1,260 @@
+(footprint "SOT-723"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "http://toshiba.semicon-storage.com/info/docget.jsp?did=5879&prodName=RN1104MFV")
+	(tags "sot 723")
+	(property "Reference" "REF**"
+		(at 0.1 -1.6 180)
+		(layer "F.Fab")
+		(uuid "fc1702a0-f5e6-48da-b01e-544d8d959058")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "NMOS"
+		(at 0 1.75 180)
+		(layer "F.Fab")
+		(uuid "e79936cc-28dd-40cb-b84d-9705ebb2d5f2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_MOSFETs"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9c37970d-15f4-401f-a7e2-48586aacddff")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "N-MOSFET transistor, drain/source/gate"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2ccf8aba-e0be-49c4-95d4-6e8b597dfd63")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Sim.Device" "NMOS"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c5c74b19-e8b4-4ce1-a03d-f86fe9dc9a2d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Sim.Type" "VDMOS"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "13b19963-4fd2-4fa3-b0f1-ff7d58a03baa")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Sim.Pins" "1=D 2=G 3=S"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "4a593000-e68a-4119-857a-ef5cb8be0064")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start 0.3 0.86)
+		(end -0.3 0.86)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "9444c41b-8839-4000-b23d-619fddfc75fd")
+	)
+	(fp_line
+		(start 0.5 -0.86)
+		(end -0.7 -0.86)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "a23749c3-6563-436c-9e1e-ca75da3f2be7")
+	)
+	(fp_line
+		(start -0.9 -0.9)
+		(end -0.9 -0.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "23e4b8f4-1ec3-4998-8f9e-e680e92dd7aa")
+	)
+	(fp_line
+		(start -0.9 -0.9)
+		(end 0.9 -0.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "617d1b08-ab4a-4f45-a381-b76e1925e837")
+	)
+	(fp_line
+		(start -0.9 0.9)
+		(end -0.9 -0.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "ee0d02ab-651b-418a-a4b5-322b59b64847")
+	)
+	(fp_line
+		(start 0.9 -0.9)
+		(end 0.9 0.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "e0e79263-2b26-4185-b273-d26cd41dc44c")
+	)
+	(fp_line
+		(start 0.9 0.9)
+		(end -0.9 0.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "b4a45991-4059-4acc-8359-b0c9b398b902")
+	)
+	(fp_line
+		(start -0.4 -0.3)
+		(end -0.1 -0.6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "fb7de6dc-9a04-4a9c-959f-26774c5cd969")
+	)
+	(fp_line
+		(start -0.4 0.6)
+		(end -0.4 -0.3)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "b3b38bb4-0fbf-49e8-a370-1655c37fcf41")
+	)
+	(fp_line
+		(start -0.1 -0.6)
+		(end 0.4 -0.6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "2b3f8685-27e1-451b-95b5-f1e82e766289")
+	)
+	(fp_line
+		(start 0.4 -0.6)
+		(end 0.4 0.6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "a861e788-5a42-4ac7-8cf9-573a25a0b3c1")
+	)
+	(fp_line
+		(start 0.4 0.6)
+		(end -0.4 0.6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "d36b66c1-e21d-4d0b-a7be-2ee99b9c3103")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0.8 0 90)
+		(layer "F.Fab")
+		(uuid "8c6b61b2-d5a1-417b-b8bd-c965348ac133")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.075)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at 0.575 0)
+		(size 0.45 0.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "175fe372-1cfe-47a7-999e-cf868b84697d")
+	)
+	(pad "2" smd roundrect
+		(at -0.575 -0.4)
+		(size 0.45 0.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "e1d1d22a-ee4d-4de7-8d0b-146fb8915ac4")
+	)
+	(pad "3" smd roundrect
+		(at -0.575 0.4)
+		(size 0.45 0.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "e43e8222-52c8-4167-8873-52d6a7f99da3")
+	)
+	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-723.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
